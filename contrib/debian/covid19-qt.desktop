@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0
+Name=COVID19 Core
+Comment=COVID19 P2P Cryptocurrency
+Comment[fr]=COVID19, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=COVID19, eşten eşe kriptografik sanal para birimi
+Exec=covid19-qt %u
+Terminal=false
+Type=Application
+Icon=covid19128
+MimeType=x-scheme-handler/covid19;
+Categories=Office;Finance;
+StartupWMClass=Covid19-qt

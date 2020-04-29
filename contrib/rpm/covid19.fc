@@ -1,0 +1,8 @@
+/usr/bin/covid19-cli		--	gen_context(system_u:object_r:covid19_exec_t,s0)
+/usr/sbin/covid19d		--	gen_context(system_u:object_r:covid19_exec_t,s0)
+/usr/lib(64)?/covid19/covid19d		--	gen_context(system_u:object_r:covid19_exec_t,s0)
+
+/etc/covid19(/.*)?		gen_context(system_u:object_r:covid19_conf_t,s0)
+/var/lib/covid19(/.*)?		gen_context(system_u:object_r:covid19_var_lib_t,s0)
+
+(/var)?/run/covid19d(/.*)?   gen_context(system_u:object_r:covid19_var_run_t,s0)

@@ -1,0 +1,6 @@
+usr/local/bin/covid19-qt usr/bin
+share/pixmaps/covid1932.xpm usr/share/pixmaps
+share/pixmaps/covid1916.xpm usr/share/pixmaps
+share/pixmaps/covid19128.png usr/share/pixmaps
+debian/covid19-qt.desktop usr/share/applications
+debian/covid19-qt.protocol usr/share/kde4/services/

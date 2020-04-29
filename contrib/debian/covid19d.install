@@ -1,0 +1,3 @@
+usr/local/bin/covid19d usr/bin
+usr/local/bin/covid19-cli usr/bin
+debian/examples/covid19.conf etc/covid19

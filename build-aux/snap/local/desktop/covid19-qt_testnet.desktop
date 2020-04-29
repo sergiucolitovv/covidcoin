@@ -1,0 +1,15 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=COVID19 Core
+Comment=COVID19 Core QT test network
+GenericName=COVID19 Digital Currency QT client testnet network
+Exec=covid19-core.qt-testnet %u
+Terminal=false
+Type=Application
+Icon=${SNAP}/share/pixmaps/covid19_testnet.png
+MimeType=x-scheme-handler/cov19;
+Categories=X-Office;X-Finance;
+Keywords=internet;covid19;zcov19;tcov19;core;wallet;qt;testnet;snap;launchpad;crypto;digital;currency;coin;token;zerocoin;
+Version=1.0

@@ -1,0 +1,15 @@
+# http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html
+
+[Desktop Entry]
+Encoding=UTF-8
+Name=COVID19 Core Daemon SNAP
+Comment=main
+GenericName=COVID19 Digital Currency Daemon Client main network
+Exec=covid19-core.daemon %u
+Terminal=true
+Type=Application
+Icon=${SNAP}/share/pixmaps/covid19.png
+MimeType=x-scheme-handler/cov19;
+Categories=X-Office;X-Finance;
+Keywords=internet;covid19;zcov19;core;wallet;daemon;main;snap;launchpad;crypto;digital;currency;coin;token;zerocoin;
+Version=1.0

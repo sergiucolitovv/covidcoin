@@ -1,0 +1,81 @@
+policy_module(covid19, 1.100.1)
+
+########################################
+#
+# Declarations
+#
+
+type covid19_t;
+type covid19_exec_t;
+init_daemon_domain(covid19_t, covid19_exec_t)
+
+permissive covid19_t;
+
+type covid19_initrc_exec_t;
+init_script_file(covid19_initrc_exec_t)
+
+type covid19_conf_t;
+files_type(covid19_conf_t)
+
+type covid19_var_lib_t;
+files_type(covid19_var_lib_t)
+
+type covid19_var_run_t;
+files_type(covid19_var_run_t)
+
+type covid19_port_t;
+corenet_port(covid19_port_t)
+
+########################################
+#
+# covid19 local policy
+#
+allow covid19_t self:process { fork };
+
+allow covid19_t self:fifo_file rw_fifo_file_perms;
+allow covid19_t self:unix_stream_socket create_stream_socket_perms;
+
+manage_dirs_pattern(covid19_t, covid19_conf_t, covid19_conf_t)
+manage_files_pattern(covid19_t, covid19_conf_t, covid19_conf_t)
+
+manage_dirs_pattern(covid19_t, covid19_var_lib_t, covid19_var_lib_t)
+manage_files_pattern(covid19_t, covid19_var_lib_t, covid19_var_lib_t)
+files_var_lib_filetrans(covid19_t, covid19_var_lib_t, { dir file })
+
+manage_dirs_pattern(covid19_t, covid19_var_run_t, covid19_var_run_t)
+manage_files_pattern(covid19_t, covid19_var_run_t, covid19_var_run_t)
+
+sysnet_dns_name_resolve(covid19_t)
+corenet_all_recvfrom_unlabeled(covid19_t)
+
+allow covid19_t self:tcp_socket create_stream_socket_perms;
+corenet_tcp_sendrecv_generic_if(covid19_t)
+corenet_tcp_sendrecv_generic_node(covid19_t)
+corenet_tcp_sendrecv_all_ports(covid19_t)
+corenet_tcp_bind_generic_node(covid19_t)
+
+gen_require(`
+    type covid19_port_t;
+')
+allow covid19_t covid19_port_t:tcp_socket name_bind;
+
+gen_require(`
+    type covid19_port_t;
+')
+allow covid19_t covid19_port_t:tcp_socket name_connect;
+
+domain_use_interactive_fds(covid19_t)
+
+files_read_etc_files(covid19_t)
+
+miscfiles_read_localization(covid19_t)
+
+sysnet_dns_name_resolve(covid19_t)
+
+allow covid19_t covid19_exec_t:file execute_no_trans;
+allow covid19_t self:process setsched;
+corecmd_exec_ls(covid19_t)
+corenet_tcp_connect_http_port(covid19_t)
+dev_read_urand(covid19_t)
+fs_getattr_xattr_fs(covid19_t)
+kernel_read_system_state(covid19_t)

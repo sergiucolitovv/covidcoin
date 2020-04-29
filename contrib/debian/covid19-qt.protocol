@@ -1,0 +1,11 @@
+[Protocol]
+exec=covid19-qt '%u'
+protocol=covid19
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false
